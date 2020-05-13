@@ -1,0 +1,27 @@
+{"_id":"AC","pais":"BR","nome":"Acre","codigoibge":"12"}
+{"_id":"AL","pais":"BR","nome":"Alagoas","codigoibge":"27"}
+{"_id":"AM","pais":"BR","nome":"Amazonas","codigoibge":"13"}
+{"_id":"AP","pais":"BR","nome":"Amapá","codigoibge":"16"}
+{"_id":"BA","pais":"BR","nome":"Bahia","codigoibge":"29"}
+{"_id":"CE","pais":"BR","nome":"Ceará","codigoibge":"23"}
+{"_id":"DF","pais":"BR","nome":"Distrito Federal","codigoibge":"53"}
+{"_id":"ES","pais":"BR","nome":"Espírito Santo","codigoibge":"32"}
+{"_id":"GO","pais":"BR","nome":"Goiás","codigoibge":"52"}
+{"_id":"MA","pais":"BR","nome":"Maranhão","codigoibge":"21"}
+{"_id":"MG","pais":"BR","nome":"Minas Gerais","codigoibge":"31"}
+{"_id":"MS","pais":"BR","nome":"Mato Grosso do Sul","codigoibge":"50"}
+{"_id":"MT","pais":"BR","nome":"Mato Grosso","codigoibge":"51"}
+{"_id":"PA","pais":"BR","nome":"Pará","codigoibge":"15"}
+{"_id":"PB","pais":"BR","nome":"Paraíba","codigoibge":"25"}
+{"_id":"PE","pais":"BR","nome":"Pernambuco","codigoibge":"26"}
+{"_id":"PI","pais":"BR","nome":"Piauí","codigoibge":"22"}
+{"_id":"PR","pais":"BR","nome":"Paraná","codigoibge":"41"}
+{"_id":"RJ","pais":"BR","nome":"Rio de Janeiro","codigoibge":"33"}
+{"_id":"RN","pais":"BR","nome":"Rio Grande do Norte","codigoibge":"24"}
+{"_id":"RO","pais":"BR","nome":"Rondônia","codigoibge":"11"}
+{"_id":"RR","pais":"BR","nome":"Roraima","codigoibge":"14"}
+{"_id":"RS","pais":"BR","nome":"Rio Grande do Sul","codigoibge":"43"}
+{"_id":"SC","pais":"BR","nome":"Santa Catarina","codigoibge":"42"}
+{"_id":"SE","pais":"BR","nome":"Sergipe","codigoibge":"28"}
+{"_id":"SP","pais":"BR","nome":"São Paulo","codigoibge":"35"}
+{"_id":"TO","pais":"BR","nome":"Tocantins","codigoibge":"17"}

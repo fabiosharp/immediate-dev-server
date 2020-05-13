@@ -1,0 +1,52 @@
+:root {
+    --primary-background-color:  rgb(3, 26, 102);
+    --primary-text-color: rgb(207, 228, 247);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family:  Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0px;
+}
+
+header {
+    height: 80px;
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
+    padding-top: 10px;
+}
+
+header > strong {
+    display: block;
+    font-size: 30px;
+    text-align: center;
+}
+header > small {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    padding: 10px 15px;
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
+    text-align: right;
+}
+
+footer a {
+    font-size: 0.8em;
+    text-decoration: none;
+    color: var(--primary-text-color);
+}
+
+footer a:hover {
+    color: skyblue;
+}
