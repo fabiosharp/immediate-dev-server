@@ -30,7 +30,7 @@ function routers(app) {
                         .limit(query.fieldsPaginate._perpage)
                         .exec((err, docs) => {
                             if (err)
-                                res.sendStatus(500).send(err)
+                                res.status(500).send(err.message)
                             else{
                                 res.setHeader('Content-Type', 'application/json')
                                 res.send({_perpage: query.fieldsPaginate._perpage,
@@ -42,7 +42,7 @@ function routers(app) {
                     }else{
                         db.find(query.fieldsQuery, (err, docs) => {
                             if (err)
-                                res.sendStatus(500).send(err)
+                                res.status(500).send(err.message)
                             else{
                                 res.setHeader('Content-Type', 'application/json')
                                 res.send(docs)
@@ -51,7 +51,7 @@ function routers(app) {
                     }
 
                 }).catch(err => {
-                    res.send(err)
+                    res.status(500).send(err.message)
                 })
 
         })
@@ -65,14 +65,14 @@ function routers(app) {
                     db.count(query.fieldsQuery)
                     .exec((err, count) => {
                         if (err)
-                            res.sendStatus(500).send(err)
+                            res.status(500).send(err.message)
                         else{
                             res.setHeader('Content-Type', 'application/json')
                             res.send({count})
                         }
                     })
                 }).catch(err => {
-                    res.send(err)
+                    res.status(500).send(err.message)
                 })
         })
 
@@ -84,14 +84,14 @@ function routers(app) {
                 .then(db => {
                     db.insert(doc, (err, newDoc) => {
                         if (err)
-                            res.sendStatus(500).send(err)
+                            res.status(500).send(err.message)
                         else{
                             res.setHeader('Content-Type', 'application/json')
                             res.send(newDoc)
                         }
                     })
                 }).catch(err => {
-                    res.send(err)
+                    res.status(500).send(err.message)
                 })
         })        
 
@@ -105,16 +105,17 @@ function routers(app) {
 
                     db.update(query, doc, {returnUpdatedDocs:true},
                         (err, numAffected, affectedDocuments, upsert) => {
-                            if (err)
-                                res.sendStatus(500).send(err)
+                            if (err){
+                                res.status(500).send(err.message)
+                            }
                             else{
                                 res.setHeader('Content-Type', 'application/json')
-                                res.send(affectedDocuments)
+                                res.send(affectedDocuments ? affectedDocuments : 'Nenhum registro alterado' )
                             }
                         })
 
                 }).catch(err => {
-                    res.send(err)
+                    res.status(500).send(err.message)
                 })
         })
 
@@ -127,7 +128,7 @@ function routers(app) {
 
                     db.remove(query, {}, (err, numRemoved) => {
                         if (err)
-                            res.sendStatus(500).send(err)
+                            res.status(500).send(err)
                         else{
                             res.setHeader('Content-Type', 'application/json')
                             res.send({removed: numRemoved})
@@ -135,7 +136,7 @@ function routers(app) {
                     })
 
                 }).catch(err => {
-                    res.send(err)
+                    res.status(500).send(err.message)
                 })
         })
 

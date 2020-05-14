@@ -12,31 +12,158 @@
             Seja bem vindo ao Immediate Dev Server
         </strong>
         <small>
-            Servidor imediato para estudos de tecnologias clients
+            Servidor imediato para estudos de tecnologias front-end
         </small>        
     </header>
     <div class="container">
 
         <div class="tab">
             <div class="tab-headers">
-                <div class="tab-header active" data-tab-content="tab-intro">
-                   <a href="">Introdução</a> 
+                <div class="tab-header" data-tab-content="tab-intro">
+                   <a href="#">Introdução</a> 
                 </div>
-                <div class="tab-header" data-tab-content="tab-route">
-                    <a href="">Rotas</a> 
+                <div class="tab-header active" data-tab-content="tab-route">
+                    <a href="#">Rotas</a> 
                 </div>
                 <div class="tab-header" data-tab-content="tab-about">
-                    <a href="">Sobre</a> 
+                    <a href="#">Sobre</a> 
                 </div>
             </div>
-            <div class="tab-content active" data-id-content="tab-intro">
-                Introdução
+            <div class="tab-content" data-tab-id-content="tab-intro">
+                <h2>Visão Geral</h2>
+                <p>
+                    Este projeto visa a ser um mini-servidor web instatâneo para uso em ambientes de aprendizado de tecnologias
+                    front-end.
+                </p>
+                <p>
+                    Não é foco do projeto ser uma ferramenta de uso em produção, tão pouco se tornar demasiadamente sofisticada, 
+                    assim sendo todo o foco do projeto foi na simplicidade de uso e rapidez de instalação.
+                </p>
+                <p>
+                    Para ver todas os endpoints disponíveis acesse a aba Rotas
+                </p>
+                <br />
+                <h2>Modo de Uso</h2>
+                <p>
+                    Uma vez instalado e rodando
+                    <dir>
+                        <p>$ npm install</p>
+                        <p>$ npm start</p>
+                    </dir>
+                    o servidor iniciará serviços de CRUD para cada banco de dados criado na pasta <code>databases/</code> com a extensão <code>.db</code>
+                </p>
+                <p>Exemplo:</p>
+                <p>
+                    Para o arquivo <code>users.db</code> em <code>databases/users.db</code> os seguintes endpoints com seus respectivos verbos serão gerados
+                    <ul>
+                        <li>http://{host}:{port}/users [GET]</li>
+                        <li>http://{host}:{port}/users/count [GET]</li>
+                        <li>http://{host}:{port}/users [POST]</li>
+                        <li>http://{host}:{port}/users/:id [PUT]</li>
+                        <li>http://{host}:{port}/users/:id [DELETE]</li>
+                    </ul>
+
+                </p>
+                <p>
+                    No exemplo anterior se a porta for a 3005 no localhost para um get simples teríamos <code>http://localhost:3005/users</code>
+                </p>
+                <h2>Adicionando Novos Bancos</h2>
+                <p>Para um novo banco de dados basta adicionar um arquivo em branco na
+                     pasta <code>databases/</code> do projeto com a extensão <code>.db</code>. 
+                </p>
+                <p>
+                    Ao reiniciar o servidor as novas rotas serão criadas.
+                </p>
+                <h2>Modos de Pesquisa</h2>
+                <h3>Pesquisa Simples</h3>
+                <p>
+                    Para cada campo que retorna em sua pesquisa, o mesmo poderá ser utilizado para filtrar seu conteúdo.
+                </p>
+                <p>
+                    Exemplo:
+                </p>
+                <p>Supondo que no endpoint <code>http://localhost:3005/persons</code> esse seja o retorno de um GET dos seus dados</p>
+                <pre>
+    [
+        {"_id":"adf564sd4", "name":"Luke Skywalker", "planet":"Tatooine"},
+        {"_id":"a5h45fsaf", "name":"Anakin Skywalker", "planet":"Tatooine"},
+        {"_id":"sgfd6asbd", "name":"Leia Organa", "planet":"Alderaan"},
+        {"_id":"trfsgsafd", "name":"Padmé Amidala", "planet":"Naboo"},
+        {"_id":"4rfsak56i", "name":"Sheev Palpatine", "planet":"Naboo"},
+        {"_id":"sgfsa9tr8", "name":"Count Dooku", "planet":"Serenno"}
+    ]
+                </pre>
+                <p>
+                    para buscar todos os nascidos no planeta Naboo pasta digitar <code>http://localhost:3005/persons?planet=Naboo</code>
+                </p>
+                <p>
+                    para buscar pelo id <code>sgfd6asbd</code> pasta digitar <code>http://localhost:3005/persons?_id=sgfd6asbd</code>
+                </p>
+                <h3>Expressões Regulares</h3>
+                <p>O Immediate Dev Server também suporta expressões regulares passadas entre //</p>
+                <p>
+                    Exemplo:
+                </p>
+                <p>Dado o exemplo do tópico anterior</p>
+                <p>
+                    para buscar todos que tenham o nome Skywalker basta digitar <code>http://localhost:3005/persons?name=/Skywalker/</code>
+                </p>
+                <p>
+                    para buscar todos que o nome comece com a letra L basta digitar <code>http://localhost:3005/persons?name=/^L/</code>
+                </p>
+                <h3>Combinando Pesquisas</h3>
+                <p>
+                    Mais de um filtro podem ser adicionados, utilizando assim uma operação do tipo <code>AND</code>
+                </p>
+                <p>
+                    Exemplo:
+                </p>
+                <p>
+                    Todos que o nome comece com L e nasceu em Tatooine <code>http://localhost:3005/persons?name=/^L/&planet=Tatooine</code>
+                </p>
+                <h3>Paginação</h3>
+                <p>
+                    Para a paginação é obrigatório o envio de dois parâmetros 
+                    <dir>
+                        <p><strong>_perpage</strong> : Quantidade de registro por página</p>
+                        <p><strong>_page</strong> : Página que deseja acessar</p>
+                    </dir>
+                </p>
+                <p>
+                    assim: 
+                </p>
+                <p>
+                    http://localhost:3005/persons?_perpage=2&_page=3 vai retornar dois registros da página 3, que no exemplo são os registros 
+                    de Sheev Palpatine e Count Dooku.
+                </p>
+                <p>
+                    Para o total de registros basta acessar o endpoint /persons/count que aceita os mesmos filtros mencionados anteriormente.
+                </p>
+
+                <br>
+                <h2>Inserindo</h2>
+                <p>O <code>Content-Type</code> utilizado pelo Immediate Dev Server é sempre <code>application/json</code> então os formatos 
+                    do documento de enviado será sempre um JSON</p>
+                <br>
+                <h2>Alterando</h2>
+                <p>Mesmas observações feitas para a inserção só que é obrigatório o envio do _id do documento a ser alterado</p>
+                <p>http://localhost:3005/persons/4rfsak56i o json enviado para esse endereço, pelo método <code>PUT</code> vai 
+                    alterar os dados de Sheev Palpatine</p>
+                <br>
+                <h2>Excluindo</h2>
+                <p>
+                    Assim como no caso do <code>PUT</code> é obrigatório a passagem do <code>_id</code>, 
+                    mas nenhum documento é necessário ser enviado no corpo da solicitação
+                </p>
             </div>
-            <div class="tab-content " data-id-content="tab-route">
-                Rotas
+            <div class="tab-content active" data-tab-id-content="tab-route">
+                <h2>Rotas Disponíveis</h2>
+                {{routes}}
             </div>
-            <div class="tab-content" data-id-content="tab-about">
-                sobre
+            <div class="tab-content" data-tab-id-content="tab-about">
+                <h2>Quem Sou Eu</h2>
+                <p>Meu nome é Fábio Araújo, sou desenvolvedor de software há vários anos e desde 2017 tenho me dedicado a desenvolver exclusivamente para a web</p>
+                <p>Para mais informações e conhecer outro pequenos projetos passatempo podem acessar <a href="https://github.com/fabiosharp" target="_blank">meu github</a> </p>
             </div>
         </div>
 
@@ -45,6 +172,6 @@
     <footer>
         <a href="https://github.com/fabiosharp/immediate-dev-server">Made with &#128151; by fabiosharp 2020</a> 
     </footer>
-
+    <script src="/assets/index.js"></script>
 </body>
 </html>

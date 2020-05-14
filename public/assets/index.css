@@ -1,5 +1,5 @@
 :root {
-    --primary-background-color:  rgb(3, 26, 102);
+    --primary-background-color: rgb(3, 26, 102);
     --primary-text-color: rgb(227, 231, 235);
     --tab-header-border: 1px solid rgb(114, 114, 114);
 }
@@ -9,7 +9,8 @@
 }
 
 body {
-    font-family:  Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9em;
     margin: 0px;
 }
 
@@ -20,20 +21,30 @@ header {
     padding-top: 10px;
 }
 
-header > strong {
+header>strong {
     display: block;
-    font-size: 30px;
+    font-size: 1.8em;
     text-align: center;
 }
-header > small {
+
+header>small {
     display: block;
-    font-size: 16px;
+    font-size: 1.2em;
     text-align: center;
     margin-top: 10px;
 }
 
-.container{
-    margin:0px;
+code {
+    font-size: 1.2em;
+    font-family: monospace;
+}
+
+pre {
+    overflow: scroll;
+}
+
+.container {
+    margin: 0px;
     padding: 10px;
 }
 
@@ -42,50 +53,151 @@ header > small {
     border: 1px solid #cccccc
 }
 
-.tab > .tab-headers {
+.tab>.tab-headers {
     display: flex;
     width: 100%;
-    /* border: 1px solid red */
 }
 
-.tab > .tab-headers > .tab-header {
+.tab>.tab-headers>.tab-header {
     margin: 5px 10px 0px 2px;
     padding: 5px 15px;
 }
 
-.tab > .tab-headers > .tab-header a {
-    font-size: 0.9em;
-    color: var(--primary-background-color);
+.tab>.tab-headers>.tab-header a {
+    color: rgba(99, 95, 85, 0.70);
     text-decoration: none;
     font-weight: 600;
 }
 
-.tab > .tab-headers > .tab-header.active {
+.tab>.tab-headers>.tab-header.active {
     background-color: #fff;
     margin-top: 2px;
     border-bottom: 2px solid var(--primary-background-color);
 }
 
-.tab > .tab-headers > .tab-header.active a {
-    font-size: 1em;
-    text-shadow: 2px 2px 3px rgba(99,95,85,0.96);;
-
+.tab>.tab-headers>.tab-header.active a {
+    color: var(--primary-background-color);
+    text-shadow: 2px 2px 3px rgba(99, 95, 85, 0.96);
+    ;
 }
 
 .tab .tab-content {
     margin: 0px 2px 2px 2px;
     padding: 20px 15px 20px 15px;
-    /* border-left: 1px solid red; 
-    border-right: 1px solid red; 
-    border-bottom: 1px solid red;  */
     border-top: 0px;
-    height: 100px;
+    height: 100%;
     display: none;
 }
 
 .tab .tab-content.active {
     visibility: visible;
     display: block;
+}
+
+.tab-content[data-tab-id-content='tab-route'] h3{
+    text-transform: capitalize;
+}
+
+.method {
+    display:flex;
+
+    border: 1px;
+    border: 1px solid #cccccc;
+    margin: 10px 0px;
+    padding: 10px 15px 20px 15px;
+}
+
+.method .call {
+    width: 40%;
+    display: inline-block;
+}
+
+.method label {
+    display: block;
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 3px 0px;
+}
+
+.method textarea {
+    display: block;
+    padding: 5px 5px;
+    margin: 5px 0px;
+    width: 80%;
+}
+
+.method input {
+    padding: 4px;
+    width: 80%;
+    border: 1px solid #cccccc;
+}
+
+.method button {
+    padding: 5px 10px;
+    border: 1px none #cccccc;
+}
+
+.method .response {
+    max-height: 162px;
+    overflow: scroll;
+    width: 55%;
+    border: 1px none #cccccc;
+}
+
+.method.get {
+    border-color: #61AFFE;
+    background-color: #EBF3FB;
+}
+
+.method.get button {
+    background-color: #61AFFE;
+    border: 1px none rgb(62, 138, 214);
+}
+
+.method.get input {
+    border-color: #61AFFE;
+}
+
+.method.post {
+    border-color: #49CC90;
+    background-color: #E8F6F0;
+}
+
+.method.post button {
+    background-color: #49CC90;
+    border: 1px none rgb(62, 138, 214);
+}
+
+.method.post input, .method.post textarea  {
+    border-color: #49CC90;
+}
+
+.method.put {
+    border-color: #FCA130;
+    background-color: #FBF1E6;
+}
+
+.method.put button {
+    background-color: #FCA130;
+    border: 1px none rgb(62, 138, 214);
+}
+
+.method.put input, .method.put textarea  {
+    border-color: #FCA130;
+}
+
+.method.delete {
+    border-color: #F93E3E;
+    background-color: #FBE7E7;
+}
+
+.method.delete button {
+    background-color: #F93E3E;
+    border: 1px none;
+}
+
+.method.delete input, .method.delete textarea  {
+    border-color: #F93E3E;
 }
 
 footer {
@@ -106,4 +218,13 @@ footer a {
 
 footer a:hover {
     color: skyblue;
+}
+
+@media(max-width: 411px) {
+    header>strong {
+        font-size: 1.2em;
+    }
+    header>small {
+        font-size: 0.8em;
+    }
 }
