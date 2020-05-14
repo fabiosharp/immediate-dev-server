@@ -1,6 +1,7 @@
 :root {
     --primary-background-color:  rgb(3, 26, 102);
-    --primary-text-color: rgb(207, 228, 247);
+    --primary-text-color: rgb(227, 231, 235);
+    --tab-header-border: 1px solid rgb(114, 114, 114);
 }
 
 * {
@@ -29,6 +30,62 @@ header > small {
     font-size: 16px;
     text-align: center;
     margin-top: 10px;
+}
+
+.container{
+    margin:0px;
+    padding: 10px;
+}
+
+.tab {
+    width: 100%;
+    border: 1px solid #cccccc
+}
+
+.tab > .tab-headers {
+    display: flex;
+    width: 100%;
+    /* border: 1px solid red */
+}
+
+.tab > .tab-headers > .tab-header {
+    margin: 5px 10px 0px 2px;
+    padding: 5px 15px;
+}
+
+.tab > .tab-headers > .tab-header a {
+    font-size: 0.9em;
+    color: var(--primary-background-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.tab > .tab-headers > .tab-header.active {
+    background-color: #fff;
+    margin-top: 2px;
+    border-bottom: 2px solid var(--primary-background-color);
+}
+
+.tab > .tab-headers > .tab-header.active a {
+    font-size: 1em;
+    text-shadow: 2px 2px 3px rgba(99,95,85,0.96);;
+
+}
+
+.tab .tab-content {
+    margin: 0px 2px 2px 2px;
+    padding: 20px 15px 20px 15px;
+    /* border-left: 1px solid red; 
+    border-right: 1px solid red; 
+    border-bottom: 1px solid red;  */
+    border-top: 0px;
+    height: 100px;
+    display: none;
+}
+
+.tab .tab-content.active {
+    visibility: visible;
+    display: block;
 }
 
 footer {

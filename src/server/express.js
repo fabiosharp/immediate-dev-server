@@ -9,7 +9,7 @@ const params = require('../config/params');
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-console.log(params.publicFolder)
+
 app.use(express.static(params.publicFolder));
 
 app.use( function (req, res, next) {

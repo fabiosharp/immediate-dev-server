@@ -11,7 +11,7 @@ function routers(app) {
     const dbs = dbLoader.getAllDbs();
 
     dbs.forEach(database => {
-        console.log('rota', `/${database.name}`)
+        console.log('created route ', `/${database.name}`)
 
         app.get(`/${database.name}`, (req, res) => {
 

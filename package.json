@@ -4,7 +4,7 @@
   "description": "Instant server for frontend development",
   "main": "index.js",
   "scripts": {
-    "start": "node",
+    "start": "node index.js",
     "dev": "nodemon"
   },
   "keywords": [],
